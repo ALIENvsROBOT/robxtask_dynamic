@@ -1,0 +1,25 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<block type="variables_set" id="(@nJRyoif-J7/QOFhmZv" x="163" y="167">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+<value name="VALUE">
+<block type="math_number" id="0=pZjFRE+Z!?8eUz2*ze">
+<field name="NUM">10</field>
+</block>
+</value>
+<next>
+<block type="MoveToLocation_-_30:9c:23:84:fe:51_-_DynamicBlock" id="mz42qn|@msq_H{b6jZ3Z">
+<field name="location">pack pose</field>
+<next>
+<block type="variables_set" id="qJ0kgm_-c]xbhdb{,z@k">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+<value name="VALUE">
+<block type="math_number" id="9YamF+SC?iV3=[zgABLq">
+<field name="NUM">10</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</xml>
