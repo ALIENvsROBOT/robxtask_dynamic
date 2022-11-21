@@ -14,9 +14,10 @@ def generate_executable_code(bIsSimulEnv):
 		input = file.read()
 	xml_parser = codegen_xml_reader.XML_BlocklyProject_Parser(input)
 	xml_parser.readAssets()
+	slot_val = xml_parser.getList()[0][0]
 	outputFileName = 'output/generated_results/'
 	# check if real robot mode or simulated OPCUA mode
-	# creates either ROS action clients for every found asset OR
+	# creates either ROS action clients for every found asset OR  
 	# creates OPCUA agent for every found asset
 	if bIsSimulEnv == 'false':
 		ros_gen = codegen_generator_ros.ROSGeneratorClass('_client_py', xml_parser.getList())
