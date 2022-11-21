@@ -28,15 +28,9 @@ class XML_BlocklyProject_Parser():
 	# CTOR: init class with variable members
 	#--------------------------------------------
 	def __init__(self, xmlString):
-		index_for_block = None
-		# self.tree = ET.parse('c:\\codegen\\codegen-service\\server\\test.xml')
-		# self.root = self.tree.getroot()
-		self.root = ET.fromstring(xmlString)
-		for i in range(len(self.root)):
-			find_block = self.root[i]
-			if find_block.tag == "{https://developers.google.com/blockly/xml}block":
-				index_for_block = i
-		self.root = self.root[index_for_block]
+		self.tree = ET.parse('c:\\codegen\\codegen-service\\server\\test.xml')
+		self.root = self.tree.getroot()
+		# self.root = ET.fromstring(xmlString)
 		self.listBlocks = []
 
 	#--------------------------------------------
@@ -135,7 +129,6 @@ class XML_BlocklyProject_Parser():
 			
 			entry.assetName = assetName
 			#print('\nFound entry: ' + entry.assetName + '; ' + entry.blockName[0] + '; ' + entry.blockSlotValue[0])
-
 				
 		# remove asset blocks
 		for entry in blocks:

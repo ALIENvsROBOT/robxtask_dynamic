@@ -7,12 +7,11 @@ import xml.etree.ElementTree as ET
 #--------------------------------------------
 class SimpleBlockEntry():	
 
-	def __init__(self, assetName, blockName, blockSlotName, blockSlotValue, indent_req):
+	def __init__(self, assetName, blockName, blockSlotName, blockSlotValue):
 		self.assetName = assetName
 		self.blockName = blockName
 		self.blockSlotName = blockSlotName
 		self.blockSlotValue = blockSlotValue
-		self.indent_req = indent_req
 
 #--------------------------------------------
 # Class to parse XML File from Blockly
@@ -57,7 +56,7 @@ class XML_BlocklyProject_Parser():
 		# variables needed for appending blocks to block list
 		blockCounter = 0
 		blocks = []
-		blocks.append(SimpleBlockEntry("", [],[],[],[]))
+		blocks.append(SimpleBlockEntry("", [],[],[]))
 
 		# statementBlockCounters contains all statement counters, which are needed to 
 		# count down the number of blocks within Statement (Loop or Selection)
@@ -70,7 +69,6 @@ class XML_BlocklyProject_Parser():
 
 				# Add a Stament End Tag, when any counter is zero again (reached end of a statement)
 				for index in range(len(statementBlockCounters)):
-					print("oooooooooooooooo",index)
 				    
 					if(statementBlockCounters[index] > 0):
 						statementBlockCounters[index] -= 1

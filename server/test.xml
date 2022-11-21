@@ -1,8 +1,4 @@
 <xml xmlns="https://developers.google.com/blockly/xml">
-<variables>
-<variable id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</variable>
-<variable id="0}amfnQ?[*q-5-ZXE~$@">hi</variable>
-</variables>
 <block type="variables_set" id="(@nJRyoif-J7/QOFhmZv" x="163" y="167">
 <field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
 <value name="VALUE">
@@ -11,13 +7,6 @@
 </block>
 </value>
 <next>
-<block type="controls_repeat_ext" id="cNx),fV%?MKTKp=Rrv9?">
-<value name="TIMES">
-<block type="math_number" id="}3C;{7u`ooc-UMp`-q4Q">
-<field name="NUM">10</field>
-</block>
-</value>
-<statement name="DO">
 <block type="MoveToLocation_-_30:9c:23:84:fe:51_-_DynamicBlock" id="mz42qn|@msq_H{b6jZ3Z">
 <field name="location">pack pose</field>
 <next>
@@ -30,8 +19,6 @@
 </value>
 </block>
 </next>
-</block>
-</statement>
 </block>
 </next>
 </block>
