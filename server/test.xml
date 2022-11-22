@@ -1,4 +1,8 @@
 <xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</variable>
+<variable id="0}amfnQ?[*q-5-ZXE~$@">hi</variable>
+</variables>
 <block type="variables_set" id="(@nJRyoif-J7/QOFhmZv" x="163" y="167">
 <field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
 <value name="VALUE">

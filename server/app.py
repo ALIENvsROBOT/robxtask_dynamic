@@ -15,29 +15,32 @@ def generate_executable_code(bIsSimulEnv):
 	xml_parser = codegen_xml_reader.XML_BlocklyProject_Parser(input)
 	xml_parser.readAssets()
 	outputFileName = 'output/generated_results/'
+	print("hello", xml_parser.getList())
+		
 	# check if real robot mode or simulated OPCUA mode
 	# creates either ROS action clients for every found asset OR
 	# creates OPCUA agent for every found asset
-	if bIsSimulEnv == 'false':
-		ros_gen = codegen_generator_ros.ROSGeneratorClass('_client_py', xml_parser.getList())
-		ros_gen.dump_all(outputFileName)
-		stream = BytesIO()
-		with ZipFile(stream, 'w') as zf:
-			for file in glob(os.path.join(outputFileName, '*')):
-				zf.write(file, os.path.basename(file))
-		stream.seek(0)
-		return 'true'
-		print ("-----------------------------------------------------")
-		print ("Generation of ROS action client files succesfull!")
-		print ("-----------------------------------------------------")
+	
+	# if bIsSimulEnv == 'false':
+	# 	ros_gen = codegen_generator_ros.ROSGeneratorClass('_client_py', xml_parser.getList())
+	# 	ros_gen.dump_all(outputFileName)
+	# 	stream = BytesIO()
+	# 	with ZipFile(stream, 'w') as zf:
+	# 		for file in glob(os.path.join(outputFileName, '*')):
+	# 			zf.write(file, os.path.basename(file))
+	# 	stream.seek(0)
+	# 	return 'true'
+	# 	print ("-----------------------------------------------------")
+	# 	print ("Generation of ROS action client files succesfull!")
+	# 	print ("-----------------------------------------------------")
 
-		print ("-----------------------------------------------------")
-		print ("Generation of OPCUA agent files succesfull!")
-		print ("-----------------------------------------------------")
-	else:
-		return 'Codegen called with incorrect program argument. [bSimulEnv] is not a boolean!'
-		print('Codegen called with incorrect program argument. [bSimulEnv] is not a boolean!')
-		print('Program execution will stop now...')
+	# 	print ("-----------------------------------------------------")
+	# 	print ("Generation of OPCUA agent files succesfull!")
+	# 	print ("-----------------------------------------------------")
+	# else:
+	# 	return 'Codegen called with incorrect program argument. [bSimulEnv] is not a boolean!'
+	# 	print('Codegen called with incorrect program argument. [bSimulEnv] is not a boolean!')
+	# 	print('Program execution will stop now...')
 
 
 if __name__ == "__main__":

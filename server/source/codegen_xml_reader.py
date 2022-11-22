@@ -27,8 +27,14 @@ class XML_BlocklyProject_Parser():
 	#--------------------------------------------
 	def __init__(self, xmlString):
 		#self.tree = ET.parse(fileName)
+
 		#self.root = self.tree.getroot()
-		self.root = ET.fromstring(xmlString)
+		read_xml = ET.fromstring(xmlString)
+
+		for i in range(len(read_xml)):
+			if read_xml[i].tag == "{https://developers.google.com/blockly/xml}block":
+				self.root = read_xml[i]
+
 		self.listBlocks = []
 
 	#--------------------------------------------
@@ -68,6 +74,7 @@ class XML_BlocklyProject_Parser():
 				print ("Found <next>-attribute")
 
 				# Add a Stament End Tag, when any counter is zero again (reached end of a statement)
+				
 				for index in range(len(statementBlockCounters)):
 				    
 					if(statementBlockCounters[index] > 0):
@@ -120,18 +127,34 @@ class XML_BlocklyProject_Parser():
 		# assign blocks
 		assetName = ""
 		for entry in blocks:
-			
-			if(entry.blockName[0] == "SetAsset"):
-				assetName = entry.blockSlotValue[0]
-			
-			entry.assetName = assetName
-			#print('\nFound entry: ' + entry.assetName + '; ' + entry.blockName[0] + '; ' + entry.blockSlotValue[0])
+			if entry.blockName != []:
+				block_string = entry.blockName[0]
+				split_block_string = block_string.split("_")
 				
-		# remove asset blocks
-		for entry in blocks:
+				if "30:9c:23:84:fe:51" in split_block_string:
+					assetName = "panda"
+					entry.assetName = assetName
 
-			if(entry.blockName[0] == "SetAsset"):
-				blocks.remove(entry)
+				elif "00:e0:4c:68:02:30" in split_block_string:
+					assetName = "chasi"
+					entry.assetName = assetName
+
+				elif "b8:27:eb:24:1f:b2" in split_block_string:
+					assetName = "qbo"
+					entry.assetName = assetName
+
+				print('\nFound entry: ' + entry.assetName + '; ' + entry.blockName[0] + '; ' + entry.blockSlotValue[0])
+			
+		# 	if(entry.blockName[0] == "SetAsset"):
+		# 		assetName = entry.blockSlotValue[0]
+			
+			
+				
+		# # remove asset blocks
+		# for entry in blocks:
+
+		# 	if(entry.blockName[0] == "SetAsset"):
+		# 		blocks.remove(entry)
 
 	#--------------------------------------------
 	# GETTER: return listBlock member variable
