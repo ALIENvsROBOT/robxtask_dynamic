@@ -8,6 +8,7 @@ import codegen_xml_reader
 import codegen_generator_ros
 import codegen_generator_opcua
 
+# ['assetName', 'blockName', 'blockSlotName', 'blockSlotValue', 'indent']
 
 def generate_executable_code(bIsSimulEnv):
 	with open('c:\\codegen\\codegen-service\\server\\test.xml', 'r') as file:
@@ -16,6 +17,9 @@ def generate_executable_code(bIsSimulEnv):
 	xml_parser.readAssets()
 	outputFileName = 'output/generated_results/'
 	print("hello", xml_parser.getList())
+	for i in xml_parser.getList():
+		for j in i:
+			print("123",j.blockSlotValue)
 		
 	# check if real robot mode or simulated OPCUA mode
 	# creates either ROS action clients for every found asset OR

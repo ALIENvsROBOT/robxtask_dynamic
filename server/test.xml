@@ -11,9 +11,29 @@
 </block>
 </value>
 <next>
+<block type="controls_if" id="gT:Ct*/@[W`y:V{VNAJt">
+<mutation else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="0P@PY{#@?*!^K(c`FkEs">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="U,YbhMU*5UN6er`rqo-s">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="]|LzUg[Af*YkNIouS4RK">
+<field name="NUM">10</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
 <block type="MoveToLocation_-_30:9c:23:84:fe:51_-_DynamicBlock" id="mz42qn|@msq_H{b6jZ3Z">
 <field name="location">pack pose</field>
-<next>
+</block>
+</statement>
+<statement name="ELSE">
 <block type="variables_set" id="qJ0kgm_-c]xbhdb{,z@k">
 <field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
 <value name="VALUE">
@@ -22,7 +42,7 @@
 </block>
 </value>
 </block>
-</next>
+</statement>
 </block>
 </next>
 </block>

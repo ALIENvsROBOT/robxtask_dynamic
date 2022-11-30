@@ -2,16 +2,18 @@
 # coding=utf-8
 import xml.etree.ElementTree as ET
 
+indent = 0
 #--------------------------------------------
 # Helper class to hold infos of one block
 #--------------------------------------------
 class SimpleBlockEntry():	
 
-	def __init__(self, assetName, blockName, blockSlotName, blockSlotValue):
+	def __init__(self, assetName, blockName, blockSlotName, blockSlotValue,indent):
 		self.assetName = assetName
 		self.blockName = blockName
 		self.blockSlotName = blockSlotName
 		self.blockSlotValue = blockSlotValue
+		self.indent = indent
 
 #--------------------------------------------
 # Class to parse XML File from Blockly
@@ -58,17 +60,24 @@ class XML_BlocklyProject_Parser():
 	def readBlocks(self, asset):
 
 		print ("Parsing XML Tree searching for blocks...")
+		print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+		for i in asset.iter('{https://developers.google.com/blockly/xml}statement'):
+			print("parent",i.attrib.get('id'))
+			for j in i.iter():
+				print("child",j.attrib.get('id'))
+		print("++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
 		# variables needed for appending blocks to block list
 		blockCounter = 0
 		blocks = []
-		blocks.append(SimpleBlockEntry("", [],[],[]))
+		blocks.append(SimpleBlockEntry("", [],[],[],None))
 
 		# statementBlockCounters contains all statement counters, which are needed to 
 		# count down the number of blocks within Statement (Loop or Selection)
 		statementBlockCounters = [] 
 	
 		for entry in asset.iter():
+			# print("111111",entry.tag)
 				
 			if(entry.tag=="{https://developers.google.com/blockly/xml}next"):
 				print ("Found <next>-attribute")
@@ -81,21 +90,21 @@ class XML_BlocklyProject_Parser():
 						statementBlockCounters[index] -= 1
 						if (statementBlockCounters[index] == 0):
 							blockCounter += 1
-							blocks.append(SimpleBlockEntry("", ["STATEMENT_ENDTAG"],["STATEMENT_ENDTAG"],["STATEMENT_ENDTAG"]))
+							blocks.append(SimpleBlockEntry("", ["STATEMENT_ENDTAG"],["STATEMENT_ENDTAG"],["STATEMENT_ENDTAG"],"end"))
 				
 				# remove all zeros from array
 				statementBlockCounters = [i for i in statementBlockCounters if i > 0]
 
 				# normally start a new block
 				blockCounter += 1
-				blocks.append(SimpleBlockEntry("", [],[],[]))
+				blocks.append(SimpleBlockEntry("", [],[],[],None))
 			
 			elif(entry.tag=="{https://developers.google.com/blockly/xml}statement"):
 				print ("Found <statement>-attribute")
 
 				# normally start a new block
 				blockCounter += 1
-				blocks.append(SimpleBlockEntry("", [],[],[]))
+				blocks.append(SimpleBlockEntry("", [],[],[],None))
 
 				# we are starting a statement and need to find the end of Selection or Loop
 				# count (nr of "next"-children + 1) to get actual nr of subnodes of statement block
@@ -112,9 +121,14 @@ class XML_BlocklyProject_Parser():
 			elif(entry.tag=="{https://developers.google.com/blockly/xml}field"):
 				print ("Found <field>-attribute with name = " + entry.attrib.get('name'))	
 				blocks[blockCounter].blockSlotValue.append(entry.text)	
+			
+
+
 				
 			else:
 				print("Warning: Found an XML element that is unknown and unhandled!")
+
+		
 
 		self.assignBlocksToAssets(blocks) # now put everything in order assigned to correct asset
 		return blocks
