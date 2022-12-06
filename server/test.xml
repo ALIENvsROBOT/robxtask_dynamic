@@ -11,6 +11,31 @@
 </block>
 </value>
 <next>
+<block type="variables_set" id="qJ0kgm_-c]xbhdb{,z@k">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+<value name="VALUE">
+<block type="math_number" id="9YamF+SC?iV3=[zgABLq">
+<field name="NUM">12</field>
+</block>
+</value>
+<next>
+<block type="controls_repeat_ext" id="o8Xvq0)=QG-QwmT49vj7">
+<value name="TIMES">
+<block type="math_number" id="y5An3uq!^M#2y|I3MgE7">
+<field name="NUM">2</field>
+</block>
+</value>
+<statement name="DO">
+<block type="SendMessage" id="}|h1=EdC)7|:yMN12*ng">
+<field name="messageType">MQTT</field>
+<value name="messageContent">
+<block type="text" id="{J#R38w9aEMDJ(x#B2$s">
+<field name="TEXT">12</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
 <block type="controls_if" id="gT:Ct*/@[W`y:V{VNAJt">
 <mutation else="1"/>
 <value name="IF0">
@@ -29,20 +54,94 @@
 </block>
 </value>
 <statement name="DO0">
+<block type="controls_if" id="^)cn=|jR5l/F50r_$BJ+">
+<mutation else="1"/>
+<value name="IF0">
+<block type="logic_compare" id=".Ca35?eArF1.o.Hn}o6i">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="M3or:v:]{T1MhGoZ!`~I">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="JbA{1OwY[WwEp;kE].!;">
+<field name="NUM">12</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
 <block type="MoveToLocation_-_30:9c:23:84:fe:51_-_DynamicBlock" id="mz42qn|@msq_H{b6jZ3Z">
 <field name="location">pack pose</field>
 </block>
 </statement>
 <statement name="ELSE">
-<block type="variables_set" id="qJ0kgm_-c]xbhdb{,z@k">
-<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+<block type="variables_set" id="+X.gcDkX/|G{(F@F`}2c">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
 <value name="VALUE">
-<block type="math_number" id="9YamF+SC?iV3=[zgABLq">
+<block type="math_number" id="VnPIq3`9g0Ina:AQFdeV">
 <field name="NUM">10</field>
 </block>
 </value>
 </block>
 </statement>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="variables_set" id="F+Y}k^kAu?%jTarEQAWr">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+<value name="VALUE">
+<block type="math_number" id=":S5LQyqE|:AV9=G8`LZj">
+<field name="NUM">13</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="MoveToLocation_-_30:9c:23:84:fe:51_-_DynamicBlock" id="CG.XIXcOZIko-^[vu[%@">
+<field name="location">cups init</field>
+<next>
+<block type="controls_if" id="V~jSZrO{o@3WThJk(HK,">
+<mutation else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="ValjvR7m7A7.NVpE1!|R">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="]2o|Kl^hcAI#7{3Pw?^N">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="DugTw%KKx}-J3zF~4}9v">
+<field name="NUM">15</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="MoveToLocation_-_30:9c:23:84:fe:51_-_DynamicBlock" id="(l(dz2v}UMT7sMH5xAHj">
+<field name="location">pack pose</field>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="variables_set" id="|z2ssQ6qCo[17.bk)q!.">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+<value name="VALUE">
+<block type="math_number" id="YoRw(yWZhz:}/7X!bA9W">
+<field name="NUM">14</field>
+</block>
+</value>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
 </block>
 </next>
 </block>

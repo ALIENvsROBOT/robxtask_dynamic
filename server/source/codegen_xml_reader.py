@@ -61,11 +61,18 @@ class XML_BlocklyProject_Parser():
 
 		print ("Parsing XML Tree searching for blocks...")
 		print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-		for i in asset.iter('{https://developers.google.com/blockly/xml}statement'):
-			print("parent",i.attrib.get('id'))
-			for j in i.iter():
-				print("child",j.attrib.get('id'))
-		print("++++++++++++++++++++++++++++++++++++++++++++++++++++")
+		parent_end = 0
+
+		# for i in asset.iter('{https://developers.google.com/blockly/xml}block'):
+		# 	if i.attrib.get('type') == "controls_if" or i.attrib.get("type")=="controls_repeat_ext":
+		# 		print("parent",i.attrib,i.text," The indent is ",parent_end)
+		# 		parent_end += 1
+		# 		print("########################################")
+		# 		for j in i.iter():
+		# 			print("child",j.attrib, j.text)
+		# 			if j.attrib == {}:
+		# 				print("found end point")
+		# 		print("++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
 		# variables needed for appending blocks to block list
 		blockCounter = 0
