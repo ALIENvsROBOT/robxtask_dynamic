@@ -3,10 +3,10 @@
 <variable id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</variable>
 <variable id="0}amfnQ?[*q-5-ZXE~$@">hi</variable>
 </variables>
-<block type="variables_set" id="(@nJRyoif-J7/QOFhmZv" x="163" y="167">
+<block type="variables_set" id="%yx0.Ai`:;4nAW7W?)mE" x="163" y="118">
 <field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
 <value name="VALUE">
-<block type="math_number" id="0=pZjFRE+Z!?8eUz2*ze">
+<block type="math_number" id="m?xG0.ie|MTp_r64zH1}">
 <field name="NUM">10</field>
 </block>
 </value>
@@ -74,6 +74,38 @@
 <statement name="DO0">
 <block type="MoveToLocation_-_30:9c:23:84:fe:51_-_DynamicBlock" id="mz42qn|@msq_H{b6jZ3Z">
 <field name="location">pack pose</field>
+<next>
+<block type="controls_repeat_ext" id="VMriMJoybI[I{/KSzEsr">
+<value name="TIMES">
+<block type="math_number" id="kEb/M,kQWA(AC8a96]?~">
+<field name="NUM">2</field>
+</block>
+</value>
+<statement name="DO">
+<block type="SetData_-_30:9c:23:84:fe:51_-_DynamicBlock" id="l@F-Tk`f{4P0[8wt+/iZ">
+<value name="outputData">
+<block type="text" id="onzcNm};1_3SeT32e98f">
+<field name="TEXT">hola</field>
+</block>
+</value>
+<next>
+<block type="SetData_-_30:9c:23:84:fe:51_-_DynamicBlock" id=":Y-]vXK+U(H554L#c!fH">
+<value name="outputData">
+<block type="text" id="K]mdia.bJP2N9qA%mh4:">
+<field name="TEXT">giveup</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="MoveToLocation_-_30:9c:23:84:fe:51_-_DynamicBlock" id="K;X~,bWq;!fxTC,|ztC{">
+<field name="location">pack pose</field>
+</block>
+</next>
+</block>
+</next>
 </block>
 </statement>
 <statement name="ELSE">
@@ -142,6 +174,111 @@
 </next>
 </block>
 </next>
+</block>
+</next>
+</block>
+<block type="variables_set" id="oB+,%51;eE@eU~2?VE8R" x="586" y="213">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+<value name="VALUE">
+<block type="math_number" id="skV}Bt9-o:TL(11@Tt2?">
+<field name="NUM">67</field>
+</block>
+</value>
+<next>
+<block type="controls_if" id="xD=91m)d]4.+J=l}b]}2">
+<mutation else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="(a1!2_HB;s`qmoErXgdQ">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="LvB:YJ3s~PgB]O^[X6EK">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="jH,nuJ96Ylv(A=}~0b7c">
+<field name="NUM">10</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="controls_if" id="aEPKWz-keae9BN3JdF4{">
+<mutation else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="o{Z+n4K-ai/=g(m_PXb4">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="Ha(YG07{Vh!rJ`/IZxu6">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="_SCU`-w$JmMUbNAoea8_">
+<field name="NUM">12</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="MoveToLocation_-_30:9c:23:84:fe:51_-_DynamicBlock" id="2J?y,1V~K+a.QJ;/pUg.">
+<field name="location">pack pose</field>
+<next>
+<block type="controls_repeat_ext" id="x]1UQJ;,fW{N%kv}fzqi">
+<value name="TIMES">
+<block type="math_number" id=",a%m.$gAizefD,1L8E:c">
+<field name="NUM">2</field>
+</block>
+</value>
+<statement name="DO">
+<block type="SetData_-_30:9c:23:84:fe:51_-_DynamicBlock" id="7?@CLuH;s13WB#rxJ=SU">
+<value name="outputData">
+<block type="text" id="_)O;}KK0D1)_MUR.)gr}">
+<field name="TEXT">hola</field>
+</block>
+</value>
+<next>
+<block type="SetData_-_30:9c:23:84:fe:51_-_DynamicBlock" id="C!pS@62FS*@sZWEV]r5k">
+<value name="outputData">
+<block type="text" id="A^|]N98NVs.Kgqsc9{@p">
+<field name="TEXT">giveup</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="MoveToLocation_-_30:9c:23:84:fe:51_-_DynamicBlock" id="BYLVR-Qc|qaY~/B=~Wn?">
+<field name="location">pack pose</field>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="variables_set" id="!gNx/XX(u}uXC%+HZ[OX">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+<value name="VALUE">
+<block type="math_number" id="YXZWD2n7S/co?[@JiBw{">
+<field name="NUM">10</field>
+</block>
+</value>
+</block>
+</statement>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="variables_set" id="UgOz{+qU${Nu=if$GFWa">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+<value name="VALUE">
+<block type="math_number" id="y/IS:zS;KSn2aX]@%nJ,">
+<field name="NUM">13</field>
+</block>
+</value>
+</block>
+</statement>
 </block>
 </next>
 </block>

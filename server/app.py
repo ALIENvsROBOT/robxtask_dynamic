@@ -16,10 +16,12 @@ def generate_executable_code(bIsSimulEnv):
 	xml_parser = codegen_xml_reader.XML_BlocklyProject_Parser(input)
 	xml_parser.readAssets()
 	outputFileName = 'output/generated_results/'
-	print("hello", xml_parser.getList())
+	
+	# print("hello", xml_parser.getList())
 	for i in xml_parser.getList():
+		print("cool",i)
 		for j in i:
-			print("123",j.blockSlotValue)
+			print("123",j.assetName,j.blockName,j.blockSlotName,j.blockSlotValue,j.indent)
 		
 	# check if real robot mode or simulated OPCUA mode
 	# creates either ROS action clients for every found asset OR
